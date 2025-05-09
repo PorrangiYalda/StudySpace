@@ -1,5 +1,5 @@
-git pull main origin
+git pull origin main
 
 git add .
 git commit -m "msg"
-git push main origin
+git push origin main
