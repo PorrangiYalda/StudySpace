@@ -1,7 +1,7 @@
 package com.example.studyspace.controller;
 
 import com.example.studyspace.model.Student;
-import com.example.studyspace.repository.UserRepository;
+import com.example.studyspace.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private StudentRepository userRepository;
 
     @GetMapping
     public List<Student> getAllUsers() {
