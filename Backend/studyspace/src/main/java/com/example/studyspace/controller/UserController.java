@@ -1,6 +1,6 @@
 package com.example.studyspace.controller;
 
-import com.example.studyspace.model.User;
+import com.example.studyspace.model.Student;
 import com.example.studyspace.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +15,12 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping
-    public List<User> getAllUsers() {
+    public List<Student> getAllUsers() {
         return userRepository.findAll();
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
+    public Student createUser(@RequestBody Student user) {
         return userRepository.save(user);
     }
 }
