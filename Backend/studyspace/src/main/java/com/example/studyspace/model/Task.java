@@ -2,7 +2,12 @@ package com.example.studyspace.model;
 import jakarta.persistence.*;
 import java.sql.Date;
 
+import jakarta.persistence.*;
+import java.sql.Date;
+
+@Entity // ← This is the key annotation you're missing
 public class Task {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long TID;
@@ -12,6 +17,5 @@ public class Task {
     private String description;
     private String status;
 
-    // add getters and setters
-    
+    // Add getters and setters
 }
