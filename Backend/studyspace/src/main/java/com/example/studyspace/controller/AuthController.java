@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.studyspace.model.Student;
 import com.example.studyspace.repository.StudentCourseRepository;
 import com.example.studyspace.repository.StudentRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 @Autowired
 StudentRepository studentRepository;
+
+private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
 
 @PostMapping("/signup")
     public String signUp(@RequestBody Student student) {
