@@ -1,10 +1,11 @@
 package com.example.studyspace.model;
 import jakarta.persistence.*;
-import java.sql.Date;
+import lombok.*;import java.sql.Date;
+
 
 import jakarta.persistence.*;
 import java.sql.Date;
-
+@Data
 @Entity // ← This is the key annotation you're missing
 public class Task {
 
@@ -18,4 +19,5 @@ public class Task {
     private String status;
 
     // Add getters and setters
+
 }
