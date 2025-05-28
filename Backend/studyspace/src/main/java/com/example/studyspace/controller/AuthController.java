@@ -27,10 +27,10 @@ StudentRepository studentRepository;
 
     // Login
     @PostMapping("/login")
-    public String login(@RequestBody Student student) {
+    public Object login(@RequestBody Student student) {
         Student existingstudent = studentRepository.findByEmail(student.getEmail());
         if (existingstudent != null && existingstudent.getPassword().equals(student.getPassword())) {
-            return "Login successful!";
+            return existingstudent;
         }
         return "Invalid email or password.";
     }
