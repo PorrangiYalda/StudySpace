@@ -25,6 +25,9 @@ private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         if (studentRepository.findByEmail(student.getEmail()) != null) {
             return "Email already registered.";
         }
+          // Hash the password
+        student.setPassword(passwordEncoder.encode(student.getPassword()));
+        studentRepository.save(student);
         studentRepository.save(student);
         return "User registered successfully.";
     }
