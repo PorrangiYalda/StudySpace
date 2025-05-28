@@ -1,8 +1,8 @@
 package com.example.studyspace.model;
-
+import lombok.*;
 
 import jakarta.persistence.*;
-
+@Data
 @Entity
 public class Course {
 

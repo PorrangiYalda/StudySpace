@@ -3,8 +3,10 @@ package com.example.studyspace.model;
 
 import jakarta.persistence.*;
 import java.sql.Date;
+import lombok.*;
 
 @Entity
+@Data
 public class Student {
 
     @Id
