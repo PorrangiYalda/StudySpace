@@ -3,3 +3,10 @@ git pull origin main
 git add .
 git commit -m "msg"
 git push origin main
+
+mvn spring-boot:run
+
+.\mvnw spring-boot:run
+
+
+  npm run dev
