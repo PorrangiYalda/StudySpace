@@ -20,8 +20,8 @@ export default function LoginForm() {
 
   return (
     <div className="min-h-screen bg-white px-6 py-12 flex flex-col items-center text-black font-sans">
-      <div className="text-4xl font-black">
-        <span className="bg-yellow-300 px-2">StudySpace</span>
+      <div className="text-4xl font-black mt-4 mb-6">
+        <span className="bg-yellow-300 px-2 ">StudySpace</span>
       </div>
 
       <p className="text-sm font-black text-center mt-4 mb-6">
@@ -30,12 +30,12 @@ export default function LoginForm() {
         With sleek task tracking, reminders, and progress tools, it keeps your brain on task and your GPA up.
       </p>
 
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md mt-6">
         <h2 className="text-lg font-semibold mb-6">
           <span className="bg-yellow-300 px-2">Login</span>
         </h2>
 
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form className="space-y-6 " onSubmit={handleSubmit}>
           <div>
             <label className="flex items-center gap-2 text-sm font-bold">
               <span className="bg-blue-300 px-2 py-1 rounded-sm">Name</span>

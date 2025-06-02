@@ -17,7 +17,11 @@ position: "sticky",
 top: 0,
 zIndex: 999,
 };
-
+ const rightContainer ={
+  display : "flex",
+  gap: "2rem",
+  alignItems :"center"
+ }
 const navContainer = {
 display: "flex",
 justifyContent: "space-between",
@@ -45,6 +49,7 @@ gap: "1.5rem",
 alignItems: "center",
 fontWeight: "500",
 fontSize: "1rem",
+justifyContent: "flex-end"
 };
 
 const socialIcons = {
@@ -72,15 +77,15 @@ return (
 
 
     {/* Center nav */}
-    <div style={navLinks}>
+    
+   <div>
+    <div style={rightContainer}>
       <span>Courses</span>
       <span style={{ cursor: "pointer" }} onClick={onFAQClick}>
         FAQ
       </span>
       <span>About</span>
-    </div>
-
-    {/* Icons + Button */}
+      {/* Icons + Button */}
     <div style={socialIcons}>
       <span>✖️</span>
       <span>🏀</span>
@@ -89,7 +94,9 @@ return (
         Join Now
       </button>
     </div>
-  </div>
+      </div>
+      </div>
+      </div>
 </div>
 
 );
