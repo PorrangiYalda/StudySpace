@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-export default function LoginPage() {
+export default function SignInPage() {
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -17,27 +17,40 @@ export default function LoginPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData); // Send to backend later
+
+    const response = await fetch("http://localhost:8080/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.text();
+    alert(data);
   };
 
   return (
     <>
       <Navbar />
 
-      <div className="min-h-screen bg-white px-4 py-12 flex flex-col justify-center items-center text-black font-sans">
-        <div className="text-4xl font-black mb-2">
-          <span className="bg-yellow-300 px-2">Login</span>
+      <div className="min-h-screen bg-white px-6 py-12 flex flex-col items-center text-black font-sans">
+        <div className="text-4xl font-black mt-4 mb-6">
+          <span className="bg-yellow-300 px-2">StudySpace</span>
         </div>
 
-        <p className="mb-10 text-center text-sm text-gray-700 max-w-md">
-          Enter your details to log in to StudySpace.
+        <p className="text-sm font-black text-center mt-4 mb-6">
+          StudySpace helps you turn “I’ll do it later” into “Done and dusted.”
+          <br />
+          With sleek task tracking, reminders, and progress tools, it keeps your brain on task and your GPA up.
         </p>
 
-        <div className="w-full max-w-md">
-          <form className="space-y-5" onSubmit={handleSubmit}>
-            {/* Loop through fields */}
+        <div className="w-full max-w-md mt-6">
+          <h2 className="text-lg font-semibold mb-6">
+            <span className="bg-yellow-300 px-2">Sign In</span>
+          </h2>
+
+          <form className="space-y-6" onSubmit={handleSubmit}>
             {[
               { label: "First Name", name: "first_name", type: "text" },
               { label: "Last Name", name: "last_name", type: "text" },
@@ -54,9 +67,9 @@ export default function LoginPage() {
                 <input
                   type={type}
                   name={name}
-                  required
                   value={formData[name]}
                   onChange={handleChange}
+                  required
                   className="ml-2 w-full border-b border-black outline-none placeholder-gray-400"
                 />
               </label>
@@ -64,14 +77,12 @@ export default function LoginPage() {
 
             {/* Level of Studies Dropdown */}
             <label className="flex items-center gap-2 text-sm font-bold">
-              <span className="bg-blue-300 px-2 py-1 rounded-sm">
-                Level of Studies
-              </span>
+              <span className="bg-blue-300 px-2 py-1 rounded-sm">Level</span>
               <select
                 name="level_of_studies"
-                required
                 value={formData.level_of_studies}
                 onChange={handleChange}
+                required
                 className="ml-2 w-full border-b border-black outline-none bg-white"
               >
                 <option value="">Select...</option>
@@ -82,7 +93,6 @@ export default function LoginPage() {
               </select>
             </label>
 
-            {/* Submit */}
             <div className="pt-6">
               <button
                 type="submit"
