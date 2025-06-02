@@ -4,12 +4,13 @@ git add .
 git commit -m "msg"
 git push origin main
 
-mvn spring-boot:run
+1.run back:cd Backend => mvn spring-boot:run
 
-.\mvnw spring-boot:run
+               .\mvnw spring-boot:run
 
-
-  npm run dev
+2.run front: cd Frontend/framer-clone
+npm start
+<!-- npm run dev -->
 
 #cloning
 cd path/to/your/folder
