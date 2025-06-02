@@ -70,7 +70,7 @@ return (
 {/* Logo */}
 <div style={logoBox}>StudySpace</div>
 
-```
+
     {/* Center nav */}
     <div style={navLinks}>
       <span>Courses</span>
