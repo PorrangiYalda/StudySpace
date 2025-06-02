@@ -10,3 +10,8 @@ mvn spring-boot:run
 
 
   npm run dev
+
+#cloning
+cd path/to/your/folder
+git clone https://github.com/yourusername/your-repo.git
+cd your-repo
