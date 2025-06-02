@@ -26,6 +26,11 @@ export default function Navbar({ onFAQClick }) {
     top: 0,
     zIndex: 999,
   };
+  const rightContainer = {
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: "0rem"
+  };
 
   const navContainer = {
     display: "flex",
@@ -112,6 +117,8 @@ export default function Navbar({ onFAQClick }) {
       <div style={navContainer}>
         <div style={logoBox}>StudySpace</div>
 
+        <div style = {rightContainer}>
+    
         <div style={navLinks}>
           <span>Courses</span>
           <span style={{ cursor: "pointer" }} onClick={onFAQClick}>
@@ -119,7 +126,7 @@ export default function Navbar({ onFAQClick }) {
           </span>
           <span>About</span>
         </div>
-
+    
         <div style={socialIcons}>
           <span>✖️</span>
           <span>🏀</span>
@@ -163,6 +170,9 @@ export default function Navbar({ onFAQClick }) {
             )}
           </div>
         </div>
+        </div>
+
+
       </div>
     </div>
   );
