@@ -66,6 +66,7 @@ export default function Navbar({ onFAQClick }) {
     gap: "1rem",
     alignItems: "center",
     fontSize: "1.2rem",
+    paddingLeft: "1rem"
   };
 
   const buttonStyle = {
