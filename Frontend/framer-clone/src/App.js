@@ -6,11 +6,13 @@ import HeroSection from "./components/HeroSection";
 import FeaturesSection from "./components/FeaturesSection";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
-import LoginPage from "./pages/loginPage"; // path based on your structure
+import LoginPage from "./pages/loginPage";
+import SignInPage from "./components/SignInPage"; // ✅ add this
 
 function Home() {
   const faqRef = useRef(null);
-  const scrollToFAQ = () => faqRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToFAQ = () =>
+    faqRef.current?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <>
@@ -27,11 +29,10 @@ function Home() {
 
 export default function App() {
   return (
-    
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-   
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signin" element={<SignInPage />} /> {/* ✅ this line */}
+    </Routes>
   );
 }
