@@ -17,7 +17,7 @@ export default function SignInPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSignupSubmit = async (e) => {
     e.preventDefault();
 
     const response = await fetch("http://localhost:8080/auth/signup", {
@@ -29,6 +29,8 @@ export default function SignInPage() {
     const data = await response.text();
     alert(data);
   };
+
+  
 
   return (
     <>
@@ -45,12 +47,13 @@ export default function SignInPage() {
           With sleek task tracking, reminders, and progress tools, it keeps your brain on task and your GPA up.
         </p>
 
+        {/* Sign Up Form */}
         <div className="w-full max-w-md mt-6">
           <h2 className="text-lg font-semibold mb-6">
-            <span className="bg-yellow-300 px-2">Sign In</span>
+            <span className="bg-yellow-300 px-2">Sign Up</span>
           </h2>
 
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-6" onSubmit={handleSignupSubmit}>
             {[
               { label: "First Name", name: "first_name", type: "text" },
               { label: "Last Name", name: "last_name", type: "text" },
@@ -63,7 +66,7 @@ export default function SignInPage() {
                 key={name}
                 className="flex items-center gap-2 text-sm font-bold"
               >
-                <span className="bg-blue-300 px-2 py-1 rounded-sm">{label}</span>
+                <span className="bg-blue-50 px-3 py-1 rounded-sm w-32 text-center">{label}</span>
                 <input
                   type={type}
                   name={name}
@@ -77,7 +80,7 @@ export default function SignInPage() {
 
             {/* Level of Studies Dropdown */}
             <label className="flex items-center gap-2 text-sm font-bold">
-              <span className="bg-blue-300 px-2 py-1 rounded-sm">Level</span>
+              <span className="bg-blue-50 px-3 py-1 rounded-sm w-32 text-center">Level</span>
               <select
                 name="level_of_studies"
                 value={formData.level_of_studies}
@@ -98,11 +101,13 @@ export default function SignInPage() {
                 type="submit"
                 className="w-full bg-black text-white py-3 rounded-full font-semibold hover:opacity-90"
               >
-                Submit
+                Sign Up
               </button>
             </div>
           </form>
         </div>
+
+        
       </div>
 
       <Footer />
