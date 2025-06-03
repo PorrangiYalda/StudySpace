@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import FeaturesSection from "./components/FeaturesSection";
@@ -29,10 +30,16 @@ function Home() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signin" element={<SignInPage />} /> {/* ✅ this line */}
-    </Routes>
+    <div
+      
+    >
+      {/* <Router> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signin" element={<SignInPage />} />
+        </Routes>
+      {/* </Router> */}
+    </div>
   );
 }

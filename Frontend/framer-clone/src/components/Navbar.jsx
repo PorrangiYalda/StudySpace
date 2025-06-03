@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Navbar({ onFAQClick }) {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -14,7 +15,7 @@ export default function Navbar({ onFAQClick }) {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setShowDropdown(false);
-    }, 200); // Delay to prevent flicker
+    }, 200);
   };
 
   const outerContainer = {
@@ -26,10 +27,11 @@ export default function Navbar({ onFAQClick }) {
     top: 0,
     zIndex: 999,
   };
+
   const rightContainer = {
     display: "flex",
     justifyContent: "center",
-    paddingTop: "0rem"
+    paddingTop: "0rem",
   };
 
   const navContainer = {
@@ -66,7 +68,7 @@ export default function Navbar({ onFAQClick }) {
     gap: "1rem",
     alignItems: "center",
     fontSize: "1.2rem",
-    paddingLeft: "1rem"
+    paddingLeft: "1rem",
   };
 
   const buttonStyle = {
@@ -99,7 +101,6 @@ export default function Navbar({ onFAQClick }) {
     gap: "0.25rem",
   };
 
-  
   const dropdownItem = {
     backgroundColor: "#000",
     color: "#fff",
@@ -111,69 +112,68 @@ export default function Navbar({ onFAQClick }) {
     cursor: "pointer",
     transition: "background 0.2s ease, opacity 0.2s ease",
   };
-  
 
   return (
     <div style={outerContainer}>
       <div style={navContainer}>
         <div style={logoBox}>StudySpace</div>
 
-        <div style = {rightContainer}>
-    
-        <div style={navLinks}>
-          <span>Courses</span>
-          <span style={{ cursor: "pointer" }} onClick={onFAQClick}>
-            FAQ
-          </span>
-          <span>About</span>
-        </div>
-    
-        <div style={socialIcons}>
-          <span>✖️</span>
-          <span>🏀</span>
-          <span>📷</span>
+        <div style={rightContainer}>
+          <div style={navLinks}>
+            <span>Courses</span>
+            <span style={{ cursor: "pointer" }} onClick={onFAQClick}>
+              FAQ
+            </span>
+            <span>About</span>
+          </div>
 
-          {/* Join Now with Dropdown */}
-          <div
-            style={dropdownWrapper}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button style={buttonStyle}>Join Now</button>
+          <div style={socialIcons}>
 
-            {showDropdown && (
-              <div style={dropdownMenu}>
-                <span
-                  style={dropdownItem}
-                  onClick={() => navigate("/signin")}
-                  onMouseEnter={(e) =>
-                    (e.target.style.backgroundColor = "#374151")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.target.style.backgroundColor = "transparent")
-                  }
-                >
-                  Sign In
-                </span>
-                <span
-                  style={dropdownItem}
-                  onClick={() => navigate("/login")}
-                  onMouseEnter={(e) =>
-                    (e.target.style.backgroundColor = "#374151")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.target.style.backgroundColor = "transparent")
-                  }
-                >
-                  Login
-                </span>
-              </div>
-            )}
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin style={{ cursor: "pointer", color: "#0077B5" }} />
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <FaGithub style={{ cursor: "pointer", color: "#333" }} />
+            </a>
+
+            <div
+              style={dropdownWrapper}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button style={buttonStyle}>Join Now</button>
+
+              {showDropdown && (
+                <div style={dropdownMenu}>
+                  <span
+                    style={dropdownItem}
+                    onClick={() => navigate("/signin")}
+                    onMouseEnter={(e) =>
+                      (e.target.style.backgroundColor = "#374151")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.backgroundColor = "transparent")
+                    }
+                  >
+                    Sign In
+                  </span>
+                  <span
+                    style={dropdownItem}
+                    onClick={() => navigate("/login")}
+                    onMouseEnter={(e) =>
+                      (e.target.style.backgroundColor = "#374151")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.backgroundColor = "transparent")
+                    }
+                  >
+                    Login
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-        </div>
-
-
       </div>
     </div>
   );
