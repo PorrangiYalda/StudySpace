@@ -47,3 +47,11 @@ body {
   background-repeat: repeat;
   background-color: white;
 }
+
+body {
+  background-image: url('/image.png'); /* 👈 relative to public/ folder */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+}

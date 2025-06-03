@@ -8,7 +8,7 @@ import FeaturesSection from "./components/FeaturesSection";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/loginPage";
-import SignInPage from "./components/SignInPage";
+import SignInPage from "./pages/SignInPage"; // ✅ add this
 
 function Home() {
   const faqRef = useRef(null);
