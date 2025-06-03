@@ -37,12 +37,13 @@ private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     // Login
     @PostMapping("/login")
     public Object login(@RequestBody Student student) {
-        Student existingstudent = studentRepository.findByEmail(student.getEmail());
-        if (existingstudent != null && existingstudent.getPassword().equals(student.getPassword())) {
-            return existingstudent;
-        }
-        return "Invalid email or password.";
+    Student existingstudent = studentRepository.findByEmail(student.getEmail());
+    if (existingstudent != null && passwordEncoder.matches(student.getPassword(), existingstudent.getPassword())) {
+        return existingstudent;
     }
+    return "Invalid email or password.";
+}
+
 
     
 }
