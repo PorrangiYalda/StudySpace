@@ -41,17 +41,19 @@
   50% { transform: translateY(-8px); }
   100% { transform: translateY(0); }
 }
-body {
+
+/* body {
   background-image: url('/dot.png');
   background-size: 40px 40px;
   background-repeat: repeat;
   background-color: white;
 }
-
-body {
-  background-image: url('/image.png'); /* 👈 relative to public/ folder */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
-}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url('/dot.png');
+  background-size: 40px 40px;
+  background-repeat: repeat;
+  background-color: white;
+} */
