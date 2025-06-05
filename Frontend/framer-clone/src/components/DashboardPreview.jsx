@@ -50,3 +50,28 @@ export default function DashboardPreview() {
     </section>
   );
 }
+
+// import React from "react";
+// import { useLocation } from "react-router-dom";
+
+// export default function Dashboard() {
+//   const location = useLocation();
+//   const student = location.state?.student;
+
+//   return (
+//     <div className="min-h-screen bg-gray-100 text-black p-10 font-sans">
+//       <h1 className="text-3xl font-bold mb-4">
+//         👋 Welcome back, {student?.first_name || "Student"}!
+//       </h1>
+
+//       <p className="text-lg mb-2">📧 Email: {student?.email}</p>
+//       <p className="text-lg mb-2">🎓 Level: {student?.level_of_studies}</p>
+//       <p className="text-lg mb-6">🗓️ DOB: {student?.dob}</p>
+
+//       <div className="bg-white p-6 rounded-lg shadow-lg">
+//         <h2 className="text-2xl font-semibold mb-2">📚 Your Courses</h2>
+//         <p className="text-gray-600">Course data coming soon...</p>
+//       </div>
+//     </div>
+//   );
+// }
