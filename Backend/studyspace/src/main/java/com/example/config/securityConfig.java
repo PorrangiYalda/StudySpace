@@ -9,17 +9,21 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
+
 @Configuration
-public class securityConfig {
+public class SecurityConfig {
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())  // disable CSRF for dev/testing
-            .cors(cors -> {})              // enable CORS support
+            .csrf(csrf -> csrf.disable())
+            .cors(cors -> {})
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**").permitAll()  // allow public access to /auth endpoints
-                .anyRequest().authenticated()              // all other requests need auth
-            );
+                .requestMatchers("/auth/**").permitAll()
+                .anyRequest().permitAll()
+            )
+            .formLogin(form -> form.disable()) // ⛔ disables login UI
+            .httpBasic(httpBasic -> httpBasic.disable()); // ⛔ disables basic auth
 
         return http.build();
     }
@@ -30,8 +34,8 @@ public class securityConfig {
         config.setAllowedOrigins(List.of("http://localhost:3000"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(true); // if you use cookies/session (optional)
-        
+        config.setAllowCredentials(true);
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;

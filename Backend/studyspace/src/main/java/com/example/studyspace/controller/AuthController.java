@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.studyspace.model.Student;
-import com.example.studyspace.repository.StudentCourseRepository;
+
 import com.example.studyspace.repository.StudentRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -16,34 +16,29 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @RequestMapping("/auth")
 @CrossOrigin(origins = "http://localhost:3000")
 public class AuthController {
-@Autowired
-StudentRepository studentRepository;
 
-private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    @Autowired
+    private StudentRepository studentRepository;
 
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-@PostMapping("/signup")
+    @PostMapping("/signup")
     public String signUp(@RequestBody Student student) {
         if (studentRepository.findByEmail(student.getEmail()) != null) {
             return "Email already registered.";
         }
-          // Hash the password
+
         student.setPassword(passwordEncoder.encode(student.getPassword()));
-        studentRepository.save(student);
         studentRepository.save(student);
         return "User registered successfully.";
     }
 
-    // Login
     @PostMapping("/login")
     public Object login(@RequestBody Student student) {
-    Student existingstudent = studentRepository.findByEmail(student.getEmail());
-    if (existingstudent != null && passwordEncoder.matches(student.getPassword(), existingstudent.getPassword())) {
-        return existingstudent;
+        Student existingStudent = studentRepository.findByEmail(student.getEmail());
+        if (existingStudent != null && passwordEncoder.matches(student.getPassword(), existingStudent.getPassword())) {
+            return existingStudent;
+        }
+        return "Invalid email or password.";
     }
-    return "Invalid email or password.";
-}
-
-
-    
 }

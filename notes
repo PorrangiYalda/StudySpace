@@ -9,6 +9,7 @@ git push origin main
                .\mvnw spring-boot:run
 
 2.run front: cd Frontend/framer-clone
+npm install
 npm start
 <!-- npm run dev -->
 
@@ -18,3 +19,5 @@ git clone https://github.com/yourusername/your-repo.git
 cd your-repo
 
 C:\Users\300372967\Desktop\proj\StudySpace\Frontend\framer-clone>npm install react-icons
+
+dont forgot to download this in vscode evrytime:Spring Initializr Java Support
