@@ -18,6 +18,6 @@ cd path/to/your/folder
 git clone https://github.com/yourusername/your-repo.git
 cd your-repo
 
-C:\Users\300372967\Desktop\proj\StudySpace\Frontend\framer-clone>npm install react-icons
+C:\Usersframer-clone>npm install react-icons
 
 dont forgot to download this in vscode evrytime:Spring Initializr Java Support
